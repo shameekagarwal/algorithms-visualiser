@@ -1,56 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kruskal</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="shortcut icon" type="image/jpg" href="../img/favicon-16x16.png" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/jpg"
+      href="../img/favicon-16x16.png"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+      }
 
-        #question {
+      #question {
+        height: 80vh;
+        border: 1px solid white;
+      }
 
-            height: 80vh;
-            border: 1px solid white;
-        }
+      #answer {
+        height: 80vh;
+        border: 1px solid white;
+      }
 
-        #answer {
-            height: 80vh;
-            border: 1px solid white;
-        }
-
-        body {
-            background-color: black;
-        }
+      body {
+        background-color: black;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="row justify-content-center t-2">
-            <div class="col-11 col-md-5 m-3">
-                <h2 class="font-weight-bold">QUESTION</h2>
-                <div id="question"></div>
-            </div>
-            <div class=" col-11 col-md-5 mt-3">
-                <h2 class="font-weight-bold">ANSWER</h2>
-                <div id="answer"></div>
-                <small>Mutiple minimum spanning trees are possible but all will have same sum of weights as
-                    above</small>
-            </div>
+      <div class="row justify-content-center t-2">
+        <div class="col-11 col-md-5 m-3">
+          <h2 class="font-weight-bold">QUESTION</h2>
+          <div id="question"></div>
         </div>
+        <div class="col-11 col-md-5 mt-3">
+          <h2 class="font-weight-bold">ANSWER</h2>
+          <div id="answer"></div>
+          <small
+            >Mutiple minimum spanning trees are possible but all will have same
+            sum of weights as above</small
+          >
+        </div>
+      </div>
     </div>
     <div class="m-3"></div>
     <script src="https://visjs.github.io/vis-network/dist/vis-network.min.js"></script>
     <script src="../js/kruskal.js"></script>
-</body>
-
+  </body>
 </html>

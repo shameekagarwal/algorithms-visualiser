@@ -1,116 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sorts</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="shortcut icon" type="image/jpg" href="img/favicon-16x16.png" />
-</head>
+  </head>
 
-<body class="bg-light" onload=resetradio()>
+  <body class="bg-light" onload="resetradio()">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand font-weight-bold" href="#"
-            >ALGORITHMS_VISUALISER</a
-          >
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarid"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
+      <div class="container">
+        <a class="navbar-brand font-weight-bold" href="#"
+          >ALGORITHMS_VISUALISER</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarid"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarid">
+          <div class="navbar-nav ml-auto">
+            <a href="algorithms.html" class="nav-item nav-link mr-5"
+              >ALGORITHMS</a
+            >
+            <a href="contactus.html" class="nav-item nav-link">CONTACT US</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="jumbotron">
+      <div class="container">
+        <p class="h4 font-weight-bold">ALGORITHMS_VISUALISER</p>
+        <p class="font-italic">make algorithms come live!</p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter Number Of Elements"
+            id="numberofelements"
+          />
+          <br />
+          <textarea
+            class="form-control"
+            id="arr"
+            placeholder="Enter Elements To Sort In The Format 1, 2, 3"
+            rows="6"
+          ></textarea>
+          <br /><br />
+          <button type="button" class="btn btn-dark" onclick="generate()">
+            GENERATE RANDOM
           </button>
-          <div class="collapse navbar-collapse" id="navbarid">
-            <div class="navbar-nav ml-auto">
-                <a href="algorithms.html" class="nav-item nav-link mr-5">ALGORITHMS</a>
-              <a href="contactus.html" class="nav-item nav-link">CONTACT US</a>
+          <br /><br /><br />
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="row justify-content-center font-weight-bold" id="message">
+            <ul>
+              <li>Enter Number Of Elements</li>
+              <li>Enter Them / Click On Generate Random</li>
+              <li>Select Method To Be Used</li>
+              <li>Click On Sort</li>
+              <li>
+                Before You Begin:
+                <ul style="list-style-type: square">
+                  <li>
+                    <i>number of elements should be from one to 1 to 2000</i>
+                  </li>
+                  <li>
+                    <i>animation is fast for number of elements above 100</i>
+                  </li>
+                  <li>
+                    <i>each element should be from one to 1 to 10000000</i>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <br /><br />
+          <div class="row justify-content-center">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-outline-dark active">
+                <input type="radio" name="options" id="mergesort" checked />
+                MERGESORT
+              </label>
+              <label class="btn btn-outline-dark">
+                <input type="radio" name="options" id="quicksort" /> QUICKSORT
+              </label>
+              <label class="btn btn-outline-dark">
+                <input type="radio" name="options" id="heapsort" /> HEAPSORT
+              </label>
             </div>
           </div>
         </div>
-      </nav>
-    <header class="jumbotron">
-        <div class="container">
-            <p class="h4 font-weight-bold">ALGORITHMS_VISUALISER</p>
-            <p class="font-italic">make algorithms come live!</p>
-        </div>
-    </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6">
-                <input type="text" class="form-control" placeholder="Enter Number Of Elements" id="numberofelements">
-                <br>
-                <textarea class="form-control" id="arr" placeholder="Enter Elements To Sort In The Format 1, 2, 3"
-                    rows="6"></textarea>
-                <br><br>
-                <button type="button" class="btn btn-dark" onclick=generate()>GENERATE RANDOM</button>
-                <br><br><br>
-            </div>
-            <div class="col-12 col-lg-6">
-                <div class="row justify-content-center font-weight-bold" id="message">
-                    <p>
-                    <ul>
-                        <li>Enter Number Of Elements</li>
-                        <li>Enter Them / Click On Generate Random</li>
-                        <li>Select Method To Be Used</li>
-                        <li>Click On Sort</li>
-                        <li>Before You Begin:
-                            <ul style="list-style-type: square;">
-                                <li><i>number of elements should be from one to 1 to 2000</i></li>
-                                <li><i>animation is fast for number of elements above 100</i></li>
-                                <li><i>each element should be from one to 1 to 10000000</i></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    </p>
-                </div>
-                <br><br>
-                <div class="row justify-content-center">
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-outline-dark active">
-                            <input type="radio" name="options" id="mergesort" checked> MERGESORT
-                        </label>
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="options" id="quicksort"> QUICKSORT
-                        </label>
-                        <label class="btn btn-outline-dark">
-                            <input type="radio" name="options" id="heapsort"> HEAPSORT
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br><br>
-        <div class="row justify-content-center">
-            <button type="button" class="btn btn-dark btn-lg p-2" onclick=sorttype()>
-                <h4>SORT !</h4>
-            </button>
-        </div>
+      </div>
+      <br /><br />
+      <div class="row justify-content-center">
+        <button
+          type="button"
+          class="btn btn-dark btn-lg p-2"
+          onclick="sorttype()"
+        >
+          <h4>SORT !</h4>
+        </button>
+      </div>
     </div>
-    <br><br><br>
+    <br /><br /><br />
     <div class="container-fluid">
-        <footer class="footer p-4">
-            <div class="d-flex justify-content-center font-weight-bold">ALGORITHMS_VISUALISER</div>
-            <div class="d-flex justify-content-center">shameek.agarwal@gmail.com</div>
-        </footer>
+      <footer class="footer p-4">
+        <div class="d-flex justify-content-center font-weight-bold">
+          ALGORITHMS_VISUALISER
+        </div>
+        <div class="d-flex justify-content-center">
+          shameek.agarwal@gmail.com
+        </div>
+      </footer>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/sortinput.js"></script>
-</body>
-
+  </body>
 </html>
